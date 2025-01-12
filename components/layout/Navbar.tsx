@@ -9,6 +9,7 @@ import { VolunteerModal } from "@/components/ui/volunteer-modal";
 import { usePreventScroll } from "@/hooks/usePreventScroll";
 import Link from "next/link";
 import { useRouter, usePathname } from 'next/navigation';
+import { AnimatedIcon } from "@/components/ui/animated-icon";
 
 const menuItems = [
   { title: "Início", href: "/#home" },
@@ -100,11 +101,13 @@ export default function Navbar() {
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
         >
-          {isOpen ? (
-            <X size={24} className="text-blue-900" />
-          ) : (
-            <Menu size={24} className="text-blue-900" />
-          )}
+          <AnimatedIcon
+            icon={isOpen ? (
+              <X size={24} className="text-blue-900" />
+            ) : (
+              <Menu size={24} className="text-blue-900" />
+            )}
+          />
         </button>
       </nav>
 

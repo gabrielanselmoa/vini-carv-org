@@ -13,6 +13,7 @@ import { Facebook, Instagram, Youtube } from "lucide-react";
 import { FloatingButton } from "@/components/ui/floating-button";
 import { Footer } from "@/components/layout/Footer";
 import { useRouter } from "next/navigation";
+import { AnimatedIcon } from "@/components/ui/animated-icon";
 
 const historicalPhotos = [
   {
@@ -285,10 +286,14 @@ export default function NossaHistoria() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   size="lg"
-                  className="bg-blue-600 hover:bg-blue-700 text-white"
+                  className="bg-blue-600 hover:bg-blue-700 text-white group"
                   onClick={() => handleNavigation("volunteer")}
                 >
-                  Seja Voluntário <ArrowRight className="ml-2 h-4 w-4" />
+                  Seja Voluntário
+                  <AnimatedIcon
+                    icon={<ArrowRight className="ml-2 h-4 w-4" />}
+                    className="inline-block"
+                  />
                 </Button>
                 <Button
                   size="lg"
