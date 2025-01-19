@@ -7,7 +7,7 @@ import { Card } from "@/components/ui/card";
 import { HandHeart, Copy, Check } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 
-const PIX_KEY = "00.000.000/0001-00";
+const PIX_KEY = "fviniciuscarvalheido@hotmail.com";
 
 export default function Donation() {
   const { toast } = useToast();
@@ -50,7 +50,7 @@ export default function Donation() {
 
           <Card className="p-8 mb-8 bg-gradient-to-br from-blue-600 to-blue-700 text-white">
             <h3 className="text-2xl font-semibold mb-4">PIX</h3>
-            <p className="mb-2">Chave PIX (CNPJ):</p>
+            <p className="mb-2">Chave PIX (E-mail):</p>
             <p className="text-lg font-medium mb-4">{PIX_KEY}</p>
             <Button 
               variant="secondary" 
@@ -74,11 +74,11 @@ export default function Donation() {
           <Card className="p-8 border-2 border-blue-100">
             <h3 className="text-xl font-semibold text-blue-900 mb-4">Transferência Bancária</h3>
             <div className="text-left max-w-md mx-auto">
-              <p className="text-gray-600">Banco: 000 - Banco Example</p>
-              <p className="text-gray-600">Agência: 0000</p>
-              <p className="text-gray-600">Conta: 00000-0</p>
-              <p className="text-gray-600">CNPJ: 00.000.000/0001-00</p>
               <p className="text-gray-600">Associação Vinícius Carvalheido</p>
+              <p className="text-gray-600">Banco: 104 - Caixa Econômica Federal</p>
+              <p className="text-gray-600">Tipo de conta: Poupança - Pessoa Física - 1288</p>
+              <p className="text-gray-600">Agência: 0671</p>
+              <p className="text-gray-600">Conta: 0007863855714</p>
             </div>
           </Card>
         </motion.div>

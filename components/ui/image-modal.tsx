@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { usePreventScroll } from "@/hooks/usePreventScroll";
+import Image from "next/image";
 
 interface ImageModalProps {
   isOpen: boolean;
@@ -42,15 +43,18 @@ export function ImageModal({ isOpen, onClose, image }: ImageModalProps) {
             >
               <X size={24} />
             </button>
-            
+
             <div className="relative aspect-[4/3] sm:aspect-[16/9] w-full">
-              <img
+              <Image
                 src={image.url}
                 alt={image.title}
                 className="w-full h-full object-contain"
+                fill
+                sizes="100vw"
+                priority
               />
             </div>
-            
+
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-4 sm:p-6">
               <h3 className="text-white text-lg sm:text-xl font-semibold">
                 {image.title}

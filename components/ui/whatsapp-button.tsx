@@ -5,11 +5,12 @@ import { MessageCircle } from "lucide-react";
 
 export function WhatsAppButton() {
   const handleWhatsAppClick = () => {
-    // Substitua este número pelo número do WhatsApp real
-    const phoneNumber = "5511999999999";
-    const message = "Olá! Gostaria de saber mais sobre a Associação Vinícius Carvalheido.";
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    const phoneNumber = "5598985425844";
+    const message =
+      "Olá! Gostaria de saber mais sobre a Associação Vinícius Carvalheido.";
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    window.open(whatsappUrl, "_blank");
   };
 
   return (
@@ -25,4 +26,4 @@ export function WhatsAppButton() {
       <MessageCircle className="w-6 h-6" />
     </motion.button>
   );
-} 
+}

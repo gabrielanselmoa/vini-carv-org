@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { X } from "lucide-react";
 import { ImageModal } from "@/components/ui/image-modal";
+import Image from "next/image";
 
 const images = [
   {
@@ -45,12 +46,15 @@ export default function Gallery() {
     <section id="gallery" className="py-16 md:py-24">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-blue-900 mb-4">Nossa Galeria</h2>
+          <h2 className="text-3xl font-bold text-blue-900 mb-4">
+            Nossa Galeria
+          </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Momentos especiais que marcam nossa história e o impacto em nossa comunidade.
+            Momentos especiais que marcam nossa história e o impacto em nossa
+            comunidade.
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {images.map((image, index) => (
             <motion.div
@@ -62,10 +66,12 @@ export default function Gallery() {
               className="relative aspect-[4/3] rounded-xl overflow-hidden group"
             >
               <div className="absolute inset-0 bg-black/40 transition-opacity duration-300 ease-in-out group-hover:opacity-60 z-10" />
-              <img
+              <Image
                 src={image.url}
                 alt={image.title}
-                className="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
               {image.title && (
                 <div className="absolute bottom-0 left-0 right-0 p-4 text-white z-20">

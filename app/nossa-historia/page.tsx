@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Navbar from "@/components/layout/Navbar";
@@ -13,7 +14,6 @@ import { Facebook, Instagram, Youtube } from "lucide-react";
 import { FloatingButton } from "@/components/ui/floating-button";
 import { Footer } from "@/components/layout/Footer";
 import { useRouter } from "next/navigation";
-import { AnimatedIcon } from "@/components/ui/animated-icon";
 
 const historicalPhotos = [
   {
@@ -110,30 +110,37 @@ export default function NossaHistoria() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative h-[60vh] bg-blue-900 text-white overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1593113598332-cd288d649433"
-            alt="Background"
-            className="w-full h-full object-cover opacity-20"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-blue-800/80" />
-        </div>
-        <div className="relative container mx-auto px-4 h-full flex items-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-3xl"
-          >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+      <section className="bg-blue-900 h-[60vh] md:h-[70vh] relative flex items-center justify-center">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-10"
+          style={{
+            backgroundImage: 'url("/assets/bg-historia.jpg")',
+            filter: "grayscale(50%)",
+          }}
+        />
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-3xl mx-auto text-center">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-4xl md:text-5xl font-bold text-white mb-6"
+            >
               Nossa História
-            </h1>
-            <p className="text-xl text-white/90 mb-8">
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-lg md:text-xl text-white/90 leading-relaxed"
+            >
               Conheça a jornada da Associação Vinícius Carvalheido e como nasceu
               nosso compromisso com a transformação social.
-            </p>
-          </motion.div>
+            </motion.p>
+          </div>
         </div>
       </section>
 
@@ -175,8 +182,117 @@ export default function NossaHistoria() {
               </div>
             </motion.div>
 
+            {/* Como Ajudamos e Ações */}
+            <section className="py-16 md:py-24 bg-gradient-to-b from-white to-blue-50">
+              <div className="container mx-auto px-4">
+                <div className="max-w-6xl mx-auto">
+                  {/* Como Ajudamos */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    className="mb-16"
+                  >
+                    <h2 className="text-3xl font-bold text-blue-900 text-center mb-12">
+                      Como Ajudamos?
+                    </h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                      {[
+                        {
+                          title: "Doações de Alimentos e Materiais",
+                          description:
+                            "Coletamos e distribuímos alimentos, roupas e materiais de higiene para famílias em necessidade.",
+                          icon: "🥫",
+                        },
+                        {
+                          title: "Apoio Psicológico",
+                          description:
+                            "Oferecemos suporte emocional para aqueles que passam por situações difíceis, ajudando-os a encontrar força e esperança.",
+                          icon: "💚",
+                        },
+                        {
+                          title: "Educação e Capacitação",
+                          description:
+                            "Promovemos oficinas e cursos que ajudam as pessoas a se qualificarem para o mercado de trabalho.",
+                          icon: "📚",
+                        },
+                        {
+                          title: "Eventos Solidários",
+                          description:
+                            "Organizamos eventos comunitários para levantar fundos e conscientizar sobre a importância da solidariedade.",
+                          icon: "🤝",
+                        },
+                      ].map((item, index) => (
+                        <motion.div
+                          key={item.title}
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5, delay: index * 0.1 }}
+                          className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+                        >
+                          <div className="text-4xl mb-4">{item.icon}</div>
+                          <h3 className="text-xl font-semibold text-blue-900 mb-3">
+                            {item.title}
+                          </h3>
+                          <p className="text-gray-600">{item.description}</p>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </motion.div>
+
+                  {/* Ações */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    className="mt-16"
+                  >
+                    <h2 className="text-3xl font-bold text-blue-900 text-center mb-12">
+                      Ações
+                    </h2>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                      {[
+                        {
+                          title: "Campanhas de Arrecadação",
+                          description:
+                            "Realizamos campanhas sazonais para coletar alimentos, roupas e brinquedos para distribuir a famílias carentes.",
+                          icon: "📦",
+                        },
+                        {
+                          title: "Projetos Educacionais",
+                          description:
+                            "Implementamos projetos de alfabetização e reforço escolar para crianças e adultos.",
+                          icon: "✏️",
+                        },
+                        {
+                          title: "Parcerias",
+                          description:
+                            "Trabalhamos em conjunto com outras organizações e empresas para ampliar nosso alcance e impactar positivamente a comunidade.",
+                          icon: "🤝",
+                        },
+                      ].map((item, index) => (
+                        <motion.div
+                          key={item.title}
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5, delay: index * 0.1 }}
+                          className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-blue-500"
+                        >
+                          <div className="text-4xl mb-4">{item.icon}</div>
+                          <h3 className="text-xl font-semibold text-blue-900 mb-3">
+                            {item.title}
+                          </h3>
+                          <p className="text-gray-600">{item.description}</p>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </motion.div>
+                </div>
+              </div>
+            </section>
+
             {/* Timeline */}
-            <div className="space-y-8">
+            {/* <div className="space-y-8">
               <h2 className="text-3xl font-bold text-blue-900 text-center mb-12">
                 Nossa Linha do Tempo
               </h2>
@@ -209,7 +325,7 @@ export default function NossaHistoria() {
                   </motion.div>
                 ))}
               </div>
-            </div>
+            </div> */}
 
             {/* Photo Gallery */}
             <div className="space-y-8">
@@ -238,10 +354,13 @@ export default function NossaHistoria() {
                       currentSlide === index ? "z-10" : "z-0"
                     }`}
                   >
-                    <img
+                    <Image
                       src={photo.url}
                       alt={photo.description}
                       className="w-full h-full object-cover"
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
+                      priority={index === 0}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                     <div className="absolute bottom-0 left-0 right-0 p-8">
@@ -286,14 +405,10 @@ export default function NossaHistoria() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   size="lg"
-                  className="bg-blue-600 hover:bg-blue-700 text-white group"
+                  className="bg-blue-600 hover:bg-blue-700 text-white"
                   onClick={() => handleNavigation("volunteer")}
                 >
-                  Seja Voluntário
-                  <AnimatedIcon
-                    icon={<ArrowRight className="ml-2 h-4 w-4" />}
-                    className="inline-block"
-                  />
+                  Seja Voluntário <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
                 <Button
                   size="lg"

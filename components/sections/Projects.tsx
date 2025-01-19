@@ -2,26 +2,33 @@
 
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
+import Image from "next/image";
 
 const projects = [
   {
     title: "Natal Solidário",
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2070",
-    description: "Distribuição de presentes e cestas básicas para famílias carentes durante o período natalino.",
-    tags: ["Natal", "Doações", "Família"]
+    image:
+      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2070",
+    description:
+      "Distribuição de presentes e cestas básicas para famílias carentes durante o período natalino.",
+    tags: ["Natal", "Doações", "Família"],
   },
   {
     title: "Páscoa do Bem",
-    image: "https://images.unsplash.com/photo-1515168833906-d2a3b82b302a?q=80&w=2070",
-    description: "Celebração da Páscoa com distribuição de chocolates e atividades recreativas para crianças.",
-    tags: ["Páscoa", "Crianças", "Recreação"]
+    image:
+      "https://images.unsplash.com/photo-1515168833906-d2a3b82b302a?q=80&w=2070",
+    description:
+      "Celebração da Páscoa com distribuição de chocolates e atividades recreativas para crianças.",
+    tags: ["Páscoa", "Crianças", "Recreação"],
   },
   {
     title: "Volta às Aulas",
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2070",
-    description: "Doação de material escolar e uniformes para crianças em idade escolar.",
-    tags: ["Educação", "Material Escolar", "Crianças"]
-  }
+    image:
+      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2070",
+    description:
+      "Doação de material escolar e uniformes para crianças em idade escolar.",
+    tags: ["Educação", "Material Escolar", "Crianças"],
+  },
 ];
 
 export default function Projects() {
@@ -35,9 +42,12 @@ export default function Projects() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl font-bold text-blue-900 mb-4">Nossos Projetos</h2>
+          <h2 className="text-3xl font-bold text-blue-900 mb-4">
+            Nossos Projetos
+          </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Conheça algumas das nossas principais iniciativas que impactam diretamente a vida de milhares de pessoas.
+            Conheça algumas das nossas principais iniciativas que impactam
+            diretamente a vida de milhares de pessoas.
           </p>
         </motion.div>
 
@@ -53,15 +63,21 @@ export default function Projects() {
             >
               <div className="aspect-[4/3] relative overflow-hidden">
                 <div className="absolute inset-0 bg-black/40 transition-opacity duration-300 ease-in-out group-hover:opacity-60 z-10" />
-                <img
+                <Image
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
               <div className="p-6 flex-1 flex flex-col">
-                <h3 className="text-xl font-bold text-blue-900 mb-2">{project.title}</h3>
-                <p className="text-gray-600 mb-4 flex-1">{project.description}</p>
+                <h3 className="text-xl font-bold text-blue-900 mb-2">
+                  {project.title}
+                </h3>
+                <p className="text-gray-600 mb-4 flex-1">
+                  {project.description}
+                </p>
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
                     <span

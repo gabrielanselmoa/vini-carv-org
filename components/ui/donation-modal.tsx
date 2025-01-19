@@ -8,7 +8,7 @@ import { Card } from "@/components/ui/card";
 import { useToast } from "@/components/ui/use-toast";
 import { usePreventScroll } from "@/hooks/usePreventScroll";
 
-const PIX_KEY = "00.000.000/0001-00";
+const PIX_KEY = "fviniciuscarvalheido@hotmail.com";
 
 interface DonationModalProps {
   isOpen: boolean;
@@ -69,17 +69,23 @@ export function DonationModal({ isOpen, onClose }: DonationModalProps) {
 
               <div className="bg-blue-50 rounded-lg p-3 sm:p-4 mb-6">
                 <p className="text-blue-900 text-sm sm:text-base">
-                  "Sua contribuição faz a diferença na vida de muitas famílias.
-                  Cada doação nos ajuda a continuar transformando vidas e
-                  levando esperança para quem mais precisa."
+                  &ldquo;Sua contribuição faz a diferença na vida de muitas
+                  famílias. Cada doação nos ajuda a continuar transformando
+                  vidas e levando esperança para quem mais precisa.&rdquo;
                 </p>
               </div>
 
               <div className="space-y-4 sm:space-y-6">
                 <Card className="p-3 sm:p-4 bg-gradient-to-br from-blue-600 to-blue-700 text-white">
-                  <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">PIX</h3>
-                  <p className="text-sm sm:text-base mb-2">Chave PIX (CNPJ):</p>
-                  <p className="text-base sm:text-lg font-medium mb-3">{PIX_KEY}</p>
+                  <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">
+                    PIX
+                  </h3>
+                  <p className="text-sm sm:text-base mb-2">
+                    Chave PIX (E-mail):
+                  </p>
+                  <p className="text-base sm:text-lg font-medium mb-3">
+                    {PIX_KEY}
+                  </p>
                   <Button
                     variant="secondary"
                     className="w-full bg-white text-blue-700 hover:bg-blue-50 text-sm sm:text-base py-4 sm:py-6"
@@ -104,11 +110,11 @@ export function DonationModal({ isOpen, onClose }: DonationModalProps) {
                     Transferência Bancária
                   </h3>
                   <div className="space-y-2 text-gray-600 text-sm sm:text-base">
-                    <p>Banco: 000 - Banco Example</p>
-                    <p>Agência: 0000</p>
-                    <p>Conta: 00000-0</p>
-                    <p>CNPJ: 00.000.000/0001-00</p>
                     <p>Associação Vinícius Carvalheido</p>
+                    <p>Banco: 104 - Caixa Econômica Federal</p>
+                    <p>Tipo de conta: Poupança - Pessoa Física - 1288</p>
+                    <p>Agência: 0671</p>
+                    <p>Conta: 0007863855714</p>
                   </div>
                 </Card>
               </div>

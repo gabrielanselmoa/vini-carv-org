@@ -7,10 +7,10 @@ import { usePreventScroll } from "@/hooks/usePreventScroll";
 interface VideoModalProps {
   isOpen: boolean;
   onClose: () => void;
-  videoUrl: string;
+  embedUrl: string;
 }
 
-export function VideoModal({ isOpen, onClose, videoUrl }: VideoModalProps) {
+export function VideoModal({ isOpen, onClose, embedUrl }: VideoModalProps) {
   usePreventScroll(isOpen);
 
   return (
@@ -20,30 +20,29 @@ export function VideoModal({ isOpen, onClose, videoUrl }: VideoModalProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          onClick={onClose}
-          className="fixed inset-0 bg-black/95 backdrop-blur-sm z-[100] flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-black/80"
         >
           <motion.div
-            initial={{ scale: 0.95, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.95, opacity: 0 }}
-            transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-5xl aspect-video bg-black rounded-xl overflow-hidden shadow-2xl"
+            initial={{ scale: 0.95 }}
+            animate={{ scale: 1 }}
+            exit={{ scale: 0.95 }}
+            className="relative w-full max-w-[400px] bg-white rounded-lg overflow-hidden"
           >
             <button
               onClick={onClose}
-              className="absolute right-2 top-2 z-10 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full shadow-lg transition-all duration-300 hover:scale-110 backdrop-blur-sm"
-              aria-label="Fechar vídeo"
+              className="absolute top-2 right-2 z-10 p-2 bg-black/60 rounded-full hover:bg-black/80 transition-colors"
             >
-              <X className="w-5 h-5" />
+              <X className="h-6 w-6 text-white" strokeWidth={2.5} />
             </button>
-            <iframe
-              src={videoUrl}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="w-full h-full"
-            />
+            <div className="relative w-full" style={{ paddingBottom: '177.78%' }}>
+              <iframe
+                src={embedUrl}
+                className="absolute top-0 left-0 w-full h-full"
+                frameBorder="0"
+                allowFullScreen
+                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
+              />
+            </div>
           </motion.div>
         </motion.div>
       )}

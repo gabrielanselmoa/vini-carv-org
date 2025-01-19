@@ -67,7 +67,7 @@ export function VolunteerModal({ isOpen, onClose }: VolunteerModalProps) {
   const formatTelefone = (value: string) => {
     // Remove tudo que não é número
     const numbers = value.replace(/\D/g, "");
-    
+
     // Aplica a máscara
     if (numbers.length <= 11) {
       return numbers.replace(/(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
@@ -77,7 +77,7 @@ export function VolunteerModal({ isOpen, onClose }: VolunteerModalProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       toast({
         title: "Erro no formulário",
@@ -86,12 +86,12 @@ export function VolunteerModal({ isOpen, onClose }: VolunteerModalProps) {
       });
       return;
     }
-    
+
     toast({
       title: "Formulário enviado!",
       description: "Agradecemos seu interesse. Entraremos em contato em breve.",
     });
-    
+
     onClose();
     setFormData({ nome: "", email: "", telefone: "", mensagem: "" });
   };
@@ -128,19 +128,26 @@ export function VolunteerModal({ isOpen, onClose }: VolunteerModalProps) {
 
               <div className="bg-blue-50 rounded-lg p-3 md:p-4 mb-6">
                 <p className="text-blue-900 text-xs md:text-base">
-                  "Junte-se a nós nessa missão de transformar vidas. Sua dedicação e tempo são valiosos para fazer a diferença na vida de muitas pessoas."
+                  &ldquo;Junte-se a nós nessa missão de transformar vidas. Sua
+                  dedicação e tempo são valiosos para fazer a diferença na vida
+                  de muitas pessoas.&rdquo;
                 </p>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label htmlFor="nome" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="nome"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Nome completo
                   </label>
                   <Input
                     id="nome"
                     value={formData.nome}
-                    onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, nome: e.target.value })
+                    }
                     required
                     className="w-full bg-white border-gray-300 text-gray-900"
                     placeholder="Digite seu nome completo"
@@ -151,14 +158,19 @@ export function VolunteerModal({ isOpen, onClose }: VolunteerModalProps) {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     E-mail
                   </label>
                   <Input
                     id="email"
                     type="email"
                     value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
                     required
                     className="w-full bg-white border-gray-300 text-gray-900"
                     placeholder="Digite seu e-mail"
@@ -169,7 +181,10 @@ export function VolunteerModal({ isOpen, onClose }: VolunteerModalProps) {
                 </div>
 
                 <div>
-                  <label htmlFor="telefone" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="telefone"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Telefone
                   </label>
                   <Input
@@ -185,18 +200,25 @@ export function VolunteerModal({ isOpen, onClose }: VolunteerModalProps) {
                     maxLength={15}
                   />
                   {errors.telefone && (
-                    <p className="text-red-500 text-sm mt-1">{errors.telefone}</p>
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.telefone}
+                    </p>
                   )}
                 </div>
 
                 <div>
-                  <label htmlFor="mensagem" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="mensagem"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Mensagem (opcional)
                   </label>
                   <Textarea
                     id="mensagem"
                     value={formData.mensagem}
-                    onChange={(e) => setFormData({ ...formData, mensagem: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, mensagem: e.target.value })
+                    }
                     className="w-full min-h-[100px] bg-white border-gray-300 text-gray-900"
                     placeholder="Conte-nos um pouco sobre você e sua motivação para ser voluntário"
                   />
@@ -215,4 +237,4 @@ export function VolunteerModal({ isOpen, onClose }: VolunteerModalProps) {
       )}
     </AnimatePresence>
   );
-} 
+}

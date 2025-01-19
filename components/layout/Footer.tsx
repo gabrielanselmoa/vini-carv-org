@@ -2,8 +2,6 @@
 
 import Link from "next/link";
 import { Facebook, Instagram, Youtube, Mail } from "lucide-react";
-import { AnimatedIcon } from "@/components/ui/animated-icon";
-import { motion } from "framer-motion";
 
 const menuItems = [
   {
@@ -11,12 +9,12 @@ const menuItems = [
     items: [
       {
         label: "Fale conosco",
-        href: "https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Associação.",
+        href: "https://wa.me/5598985425844?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Associação.",
         isExternal: true,
       },
       {
         label: "Ajuda",
-        href: "mailto:contato@avc.org",
+        href: "mailto:fviniciuscarvalheido@hotmail.com",
         isExternal: true,
       },
     ],
@@ -24,9 +22,9 @@ const menuItems = [
 ];
 
 const socialLinks = {
-  instagram: "https://instagram.com/avc",
-  facebook: "https://facebook.com/avc",
-  youtube: "https://youtube.com/@avc",
+  instagram: "https://www.instagram.com/associacaoviniciusc/"
+  // facebook: "https://facebook.com/avc",
+  // youtube: "https://youtube.com/@avc",
 };
 
 export function Footer() {
@@ -49,62 +47,26 @@ export function Footer() {
                 href={socialLinks.instagram}
                 target="_blank"
                 aria-label="Instagram"
+                className="hover:scale-110 transition-transform"
               >
-                <motion.div
-                  whileHover={{ 
-                    scale: 1.1,
-                    rotate: 5,
-                    y: -2 
-                  }}
-                  transition={{ 
-                    type: "spring",
-                    stiffness: 300,
-                    damping: 10
-                  }}
-                >
-                  <Instagram className="w-5 h-5 text-gray-500 hover:text-blue-600 transition-all duration-300" />
-                </motion.div>
+                <Instagram className="w-5 h-5 text-gray-500 hover:text-blue-600 transition-colors" />
               </Link>
-              <Link
+              {/* <Link
                 href={socialLinks.facebook}
                 target="_blank"
                 aria-label="Facebook"
+                className="hover:scale-110 transition-transform"
               >
-                <motion.div
-                  whileHover={{ 
-                    scale: 1.1,
-                    rotate: -5,
-                    y: -2 
-                  }}
-                  transition={{ 
-                    type: "spring",
-                    stiffness: 300,
-                    damping: 10
-                  }}
-                >
-                  <Facebook className="w-5 h-5 text-gray-500 hover:text-blue-600 transition-all duration-300" />
-                </motion.div>
+                <Facebook className="w-5 h-5 text-gray-500 hover:text-blue-600 transition-colors" />
               </Link>
               <Link
                 href={socialLinks.youtube}
                 target="_blank"
                 aria-label="YouTube"
+                className="hover:scale-110 transition-transform"
               >
-                <motion.div
-                  whileHover={{ 
-                    scale: 1.1,
-                    rotate: 5,
-                    y: -2 
-                  }}
-                  transition={{ 
-                    type: "spring",
-                    stiffness: 300,
-                    damping: 10
-                  }}
-                >
-                  <Youtube className="w-5 h-5 text-gray-500 hover:text-blue-600 transition-all duration-300" />
-                </motion.div>
-              </Link>
+                <Youtube className="w-5 h-5 text-gray-500 hover:text-blue-600 transition-colors" />
+              </Link> */}
             </div>
           </div>
 
@@ -138,9 +100,9 @@ export function Footer() {
             <div>
               <h3 className="font-semibold text-gray-900 mb-4">Contato</h3>
               <ul className="space-y-2">
-                <li className="text-sm">contato@avc.org</li>
-                <li className="text-sm">(11) 0000-0000</li>
-                <li className="text-sm">São Paulo - SP</li>
+                <li className="text-sm">fviniciuscarvalheido@hotmail.com</li>
+                <li className="text-sm">(98) 98542-5844</li>
+                <li className="text-sm">São Luís - MA</li>
               </ul>
             </div>
           </div>

@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { VideoModal } from "@/components/ui/video-modal";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function About() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
@@ -26,10 +27,13 @@ export default function About() {
             className="relative aspect-video rounded-xl overflow-hidden shadow-lg transition-all duration-500 ease-in-out group hover:shadow-2xl"
           >
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/30 transition-all duration-500 ease-in-out opacity-90 group-hover:opacity-60" />
-            <img
-              src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=2070"
-              alt="Fundação da AVC"
-              className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
+            <Image
+              src="/assets/about.jpg"
+              alt="Sobre nós"
+              className="w-full h-full object-cover rounded-lg"
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              priority
             />
             <Button
               size="lg"
@@ -101,7 +105,7 @@ export default function About() {
       <VideoModal
         isOpen={isVideoModalOpen}
         onClose={() => setIsVideoModalOpen(false)}
-        videoUrl="https://www.youtube.com/embed/EZ9lTri1dBU"
+        embedUrl={`https://www.instagram.com/reel/CmbyM8BrKhQ/embed`}
       />
     </section>
   );
